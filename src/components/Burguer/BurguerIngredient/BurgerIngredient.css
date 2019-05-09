@@ -1,0 +1,57 @@
+.BreadTop {
+  display: block;
+  position: relative;
+  margin: 2px auto;
+  height: auto;
+  z-index: 100;
+}
+
+.Tomato {
+  display: block;
+  position: relative;
+  margin: -5px auto;
+  height: auto;
+}
+
+.Lettuce {
+  display: block;
+  position: relative;
+  margin: -5px auto;
+  height: auto;
+}
+
+.Gerkins {
+  display: block;
+  position: relative;
+  margin: -5px auto;
+  height: auto;
+}
+
+.Cheese {
+  display: block;
+  position: relative;
+  margin: -5px auto;
+  height: auto;
+}
+
+.Bacon {
+  display: block;
+  position: relative;
+  margin: -5px auto;
+  height: auto;
+}
+
+.Burguer {
+  display: block;
+  position: relative;
+  margin: -5px auto;
+  height: auto;
+}
+
+.BreadBottom {
+  display: block;
+  position: relative;
+  height: auto;
+  margin: -5px auto;
+  height: auto;
+}
