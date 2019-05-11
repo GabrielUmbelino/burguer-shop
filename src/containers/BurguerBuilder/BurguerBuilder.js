@@ -1,4 +1,4 @@
-import Aux from '../../hoc/Aux';
+import Aux from '../../hoc/Aux/Aux';
 import React, { Component } from 'react';
 import Burguer from '../../components/Burguer/Burguer';
 import BuildControls from '../../components/Burguer/BuildControls/BuildControls';
