@@ -1,8 +1,10 @@
 import BurguerIngredient from './BurguerIngredient/BurguerIngredient';
 import classes from './Burger.css';
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 const burguer = props => {
+  console.log(props)
   // let zIndex = Object.keys(props.ingredients).reduce((sum, key) => sum + props.ingredients[key], 1);
   // console.log(zIndex);
   let transformedIngredients = Object.keys(props.ingredients)
@@ -13,8 +15,7 @@ const burguer = props => {
     })
     .reduce((arr, el) => {
       return arr.concat(el);
-    }, [])
-    .reverse();
+    }, []);
 
   if (transformedIngredients.length === 0) {
     transformedIngredients = <p>Please start adding ingredients.</p>;
@@ -28,4 +29,4 @@ const burguer = props => {
   );
 };
 
-export default burguer;
+export default withRouter(burguer);

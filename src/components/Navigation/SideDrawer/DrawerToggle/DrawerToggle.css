@@ -8,3 +8,10 @@
 .DrawerToggle img {
   max-height: 100%;
 }
+
+
+@media (min-width: 499px) {
+  .DrawerToggle {
+    display: none;
+  }
+}

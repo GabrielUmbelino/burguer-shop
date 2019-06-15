@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 
 class Modal extends Component {
   shouldComponentUpdate(nextProps, nextState) {
-    return nextProps.show !== this.props.show;
+    return nextProps.show !== this.props.show || nextProps.childre !== this.props.children;
   }
 
   componentDidUpdate() {
