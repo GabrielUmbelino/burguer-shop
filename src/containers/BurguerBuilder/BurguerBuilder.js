@@ -12,13 +12,11 @@ import withErrorHandler from '../../hoc/withErrorHadler/withErrorHandler'
 import * as actions from  '../../store/actions/index'
 class BurguerBuilder extends Component {
   state = {
-    ingredients: null,
-    totalPrice: 4,
-    purchasable: false,
     purchasing: false
   };
 
   componentDidMount() {
+    console.log(`[burguer builder] ${this.props}`);
     this.props.onInitIngredients();
   }
 
@@ -35,7 +33,12 @@ class BurguerBuilder extends Component {
   }
 
   purchaseHandler = () => {
-    this.setState({ purchasing: true });
+    if (this.props.isAuthenticated) {
+      this.setState({ purchasing: true });
+    } else {
+      this.props.onSetAuthRedirectPath('/checkout')
+      this.props.history.push('/auth')
+    }
   };
 
   purchaseCancelHandler = () => {
@@ -63,6 +66,7 @@ class BurguerBuilder extends Component {
        <Aux>
          <Burguer ingredients={this.props.ings} />
          <BuildControls
+          isAuth={this.props.isAuthenticated}
           ingredientAdded={this.props.onIngredientAdded}
           ingredientRemoved={this.props.onIngredientRemoved}
           disabled={disabledInfo}
@@ -94,7 +98,8 @@ const mapStateToProps = state => {
   return {
     ings: state.burguerBuilder.ingredients,
     totalPrice: state.burguerBuilder.totalPrice,
-    error: state.burguerBuilder.error
+    error: state.burguerBuilder.error,
+    isAuthenticated: state.auth.token !== null
   }
 }
 
@@ -103,7 +108,8 @@ const mapDispatchToProps = dispatch => {
     onIngredientAdded: ingredientName => dispatch(actions.addIngredient(ingredientName)),
     onIngredientRemoved: ingredientName => dispatch(actions.removeIngredient(ingredientName)),
     onInitIngredients: () => dispatch(actions.initIngredients()),
-    onInitPurchase: () => dispatch(actions.purchaseInit())
+    onInitPurchase: () => dispatch(actions.purchaseInit()),
+    onSetAuthRedirectPath: path => dispatch(actions.setAuthRedirectPath(path))
   }
 }
 
