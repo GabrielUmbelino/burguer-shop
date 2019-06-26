@@ -1,5 +1,5 @@
 import * as actionTypes from '../actions/actionTypes';
-import { updateObject } from '../utility'
+import { updateObject } from '../../shared/utility'
 const initialState = {
   orders: [],
   loading: false,
@@ -7,7 +7,7 @@ const initialState = {
 }
 
 const purchaseInit = (state, action) => updateObject(state, { purchased: false });
-const purchaseBurguerStart = (state, action) => updateObject(state, { loading: false });
+const purchaseBurguerStart = (state, action) => updateObject(state, { loading: true });
 const purchaseBurguerSuccess = (state, action) => {
   const newOrder = updateObject(action.orderData, { id: action.orderId });
 

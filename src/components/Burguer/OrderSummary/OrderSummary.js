@@ -2,10 +2,6 @@ import Aux from '../../../hoc/Aux/Aux';
 import Button from '../../UI/Button/Button';
 import React, { Component } from 'react';
 class OrderSummary extends Component {
-  componentDidUpdate() {
-    console.log('[OrderSummary] updaito');
-  }
-
   render() {
     const ingredientSummary = Object.keys(this.props.ingredients).map(igKey => (
       <li key={igKey}>

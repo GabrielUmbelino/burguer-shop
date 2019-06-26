@@ -4,9 +4,6 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 const burguer = props => {
-  console.log(props)
-  // let zIndex = Object.keys(props.ingredients).reduce((sum, key) => sum + props.ingredients[key], 1);
-  // console.log(zIndex);
   let transformedIngredients = Object.keys(props.ingredients)
     .map(igKey => {
       return [...Array(props.ingredients[igKey])].map((_, i) => {
